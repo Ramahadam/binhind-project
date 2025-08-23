@@ -21,19 +21,18 @@ export default function App() {
     <div className="relative">
       <Swiper
         navigation={{
-          prevEl: ".custom-prev",
-          nextEl: ".custom-next",
+          prevEl: ".custom-prev-ourteam",
+          nextEl: ".custom-next-ourteam",
         }}
-        // slidesPerView={2}
         grid={{
           rows: 1,
         }}
-        spaceBetween={30}
+        spaceBetween={20}
         pagination={{
           clickable: true,
         }}
         modules={[Grid, Navigation]}
-        className="mySwiper team-slider  h-80 w-[80%]"
+        className="mySwiper team-slider h-80 w-[80%]"
         breakpoints={{
           375: {
             // from 768px and up (tablets + desktops)
@@ -129,13 +128,69 @@ export default function App() {
             </div>
           </article>
         </SwiperSlide>
+        <SwiperSlide>
+          <article className="text-center flex items-center flex-col gap-3">
+            <figure>
+              <Image src="/person.png" width={200} height={184} alt="person" />
+
+              <figcaption>
+                <p className="font-medium md:text-h22 text-primary my-1">
+                  Name here
+                </p>
+                <p className="opacity-40 uppercase font-bold text-p14 tracking-wide">
+                  Position here
+                </p>
+              </figcaption>
+            </figure>
+
+            <div className="flex items-center justify-center gap-3">
+              <Link href="#">
+                <FaWhatsapp />
+              </Link>
+              <Link href="#">
+                <BsTelephone />
+              </Link>
+              <Link href="#">
+                <FaRegEnvelope />
+              </Link>
+            </div>
+          </article>
+        </SwiperSlide>
+        <SwiperSlide>
+          <article className="text-center flex items-center flex-col gap-3">
+            <figure>
+              <Image src="/person.png" width={200} height={184} alt="person" />
+
+              <figcaption>
+                <p className="font-medium md:text-h22 text-primary my-1">
+                  Name here
+                </p>
+                <p className="opacity-40 uppercase font-bold text-p14 tracking-wide">
+                  Position here
+                </p>
+              </figcaption>
+            </figure>
+
+            <div className="flex items-center justify-center gap-3">
+              <Link href="#">
+                <FaWhatsapp />
+              </Link>
+              <Link href="#">
+                <BsTelephone />
+              </Link>
+              <Link href="#">
+                <FaRegEnvelope />
+              </Link>
+            </div>
+          </article>
+        </SwiperSlide>
       </Swiper>
 
       {/* Arrows OUTSIDE Swiper */}
-      <button className="custom-prev absolute md:-left-18 left-0 top-1/3 -translate-y-1/2 z-50 p-3 bg-transparent cursor-pointer ">
+      <button className="custom-prev-ourteam absolute md:-left-2 left-0 top-1/3 -translate-y-1/2 z-50 p-3 bg-transparent cursor-pointer ">
         <MdKeyboardArrowLeft className="h-8 w-8" />
       </button>
-      <button className="custom-next absolute md:-right-18 right-0 top-1/3 -translate-y-1/2 z-50 p-3  bg-transparent cursor-pointer">
+      <button className="custom-next-ourteam absolute md:-right-2 right-0 top-1/3 -translate-y-1/2 z-50 p-3  bg-transparent cursor-pointer">
         <MdKeyboardArrowRight className="h-8 w-8" />
       </button>
     </div>

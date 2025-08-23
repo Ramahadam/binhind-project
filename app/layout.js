@@ -1,6 +1,8 @@
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "./_components/Navbar";
+import Banner from "./_components/Banner";
+import ClientWrapper from "./ClientWrapper";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -14,11 +16,13 @@ export const metadata = {
   description: "Binhind consultant",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${dmSans.variable}  antialiased`}>
         <Navbar />
+        <ClientWrapper />
+
         {children}
       </body>
     </html>

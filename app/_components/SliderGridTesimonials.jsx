@@ -17,8 +17,8 @@ export default function App() {
     <div className="relative">
       <Swiper
         navigation={{
-          prevEl: ".custom-prev",
-          nextEl: ".custom-next",
+          prevEl: ".custom-prev-testimonials",
+          nextEl: ".custom-next-testimonials",
         }}
         // slidesPerView={2}
 
@@ -92,11 +92,11 @@ export default function App() {
       </Swiper>
 
       {/* Arrows OUTSIDE Swiper */}
-      <button className="custom-prev absolute bg-white rounded-full right-20  z-50 p-3 cursor-pointer ">
-        <FaArrowLeft className="h-8 w-8" />
+      <button className="custom-prev-testimonials absolute bg-white rounded-full right-20  z-50 p-3 cursor-pointer ">
+        <FaArrowLeft className="md:h-8 md:w-8 h-4" />
       </button>
-      <button className="custom-next bg-white absolute rounded-full right-0  z-50 p-3  cursor-pointer">
-        <FaArrowRight className="h-8 w-8" />
+      <button className="custom-next-testimonials bg-white absolute rounded-full right-0  z-50 p-3  cursor-pointer">
+        <FaArrowRight className="md:h-8 md:w-8 h-4" />
       </button>
     </div>
   );
