@@ -9,6 +9,7 @@
   /* Custom brand colors */
   --color-primary: #4b2615;
   --color-white: #ffffff;
+  --color-lightGray: #c9beb9;
 
   /* Font family */
   --font-sans: var(--font-dm-sans), sans-serif;
@@ -20,6 +21,7 @@
   --text-p14: 0.875rem; /* 14px / 16 */
   --text-p16: 1rem; /* 16px / 16 */
   --text-p18: 1.125rem; /* 18px / 16 */
+  --text-p24: 1.75rem; /* 24px / 16 */
 
   /* Font weight */
   --font-weight-regular: 400;
@@ -32,6 +34,7 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--color-primary);
   --color-white: var(--color-white);
+  --color-lightGray: var(--color-lightGray);
   --font-sans: var(--font-sans);
 
   --text-h22: var(--text-h22);
@@ -40,6 +43,7 @@
   --text-p14: var(--text-p14);
   --text-p16: var(--text-p16);
   --text-p18: var(--text-p18);
+  --text-p24: var(--text-p24);
 
   --font-weight-regular: var(--font-weight-regular);
   --font-weight-medium: var(--font-weight-medium);
@@ -61,6 +65,7 @@
   h5,
   h6 {
     color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
   }
 
   button {
@@ -78,4 +83,10 @@
 /* Normal bullet */
 .swiper-pagination-bullet {
   @apply !bg-white cursor-pointer md:!h-3 md:!w-3;
+}
+
+/****** Swiper Bullet Responsiveness *******/
+.swiper-vertical > .swiper-pagination-bullets,
+.swiper-pagination-vertical.swiper-pagination-bullets {
+  @apply top-1/2 translate-y-58 z-50 left-1/2 h-10 w-10 md:top-auto md:translate-y-0;
 }
