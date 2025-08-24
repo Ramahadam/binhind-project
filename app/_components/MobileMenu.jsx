@@ -6,9 +6,12 @@ import Link from "next/link";
 import SearchInput from "./SearchInput";
 import LanguageButton from "./LanguageButton";
 import BookingButton from "./BookingButton";
-function MobileMenu({ navItems, servicesOpen, setServicesOpen }) {
+function MobileMenu({ navItems, servicesOpen, setServicesOpen, menuRef }) {
   return (
-    <nav className="md:hidden mt-2 flex flex-col space-y-2 px-4 bg-primary py-4 w-full h-dvh">
+    <nav
+      className="md:hidden mt-2 flex flex-col space-y-2 px-4 bg-primary py-4 w-full h-dvh"
+      ref={menuRef}
+    >
       {navItems.map((item) =>
         item.subItems ? (
           <div key={item.href}>

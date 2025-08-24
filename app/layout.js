@@ -1,8 +1,10 @@
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
+
 import Navbar from "./_components/Navbar";
 import Banner from "./_components/Banner";
 import ClientWrapper from "./ClientWrapper";
+import ReduxProviderWrapper from "./_components/ReduxProviderWrapper";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -20,10 +22,11 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${dmSans.variable}  antialiased`}>
-        <Navbar />
-        <ClientWrapper />
-
-        {children}
+        <ReduxProviderWrapper>
+          <Navbar />
+          <ClientWrapper />
+          {children}
+        </ReduxProviderWrapper>
       </body>
     </html>
   );

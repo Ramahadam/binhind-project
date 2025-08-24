@@ -1,3 +1,4 @@
+"use client";
 import {
   Bars3Icon,
   XMarkIcon,
@@ -9,12 +10,16 @@ import Link from "next/link";
 import SearchInput from "./SearchInput";
 import LanguageButton from "./LanguageButton";
 import BookingButton from "./BookingButton";
+import { useRef } from "react";
 
-function DesktopMenu({ navItems, servicesOpen, setServicesOpen }) {
+function DesktopMenu({ navItems, servicesOpen, setServicesOpen, menuRef }) {
   return (
     <>
       {/* Desktop nav */}
-      <nav className="hidden md:flex space-x-6 items-center relative">
+      <nav
+        className="hidden md:flex space-x-6 items-center relative"
+        ref={menuRef}
+      >
         {navItems.map((item) =>
           item.subItems ? (
             <div key={item.href} className="group relative">
@@ -36,6 +41,7 @@ function DesktopMenu({ navItems, servicesOpen, setServicesOpen }) {
                     <Link
                       key={sub.href}
                       href={sub.href}
+                      onClick={() => setServicesOpen(false)}
                       className="block px-6 py-3 hover:bg-primary hover:opacity-40 transition"
                     >
                       {sub.label}
@@ -48,6 +54,7 @@ function DesktopMenu({ navItems, servicesOpen, setServicesOpen }) {
             <Link
               key={item.href}
               href={item.href}
+              onClick={() => setServicesOpen(false)}
               className="text-paragraph hover:text-primary transition"
             >
               {item.label}

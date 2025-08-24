@@ -2,16 +2,23 @@
 
 import { usePathname } from "next/navigation";
 import Banner from "./_components/Banner";
-import SliderDemo from "./_components/SliderDemo";
+import { useEffect } from "react";
+import HeroSection from "./_components/HeroSection";
 
 function ClientWrapper() {
   const pathname = usePathname();
+
+  useEffect(() => {
+    // Scroll to top whenever route changes
+
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   // Render the slider on home page
   if (pathname === "/")
     return (
       <Banner>
-        <SliderDemo />
+        <HeroSection />
       </Banner>
     );
 

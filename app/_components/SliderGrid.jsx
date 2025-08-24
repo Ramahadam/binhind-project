@@ -1,22 +1,16 @@
 "use client";
 import React, { useRef, useState } from "react";
 // Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FaWhatsapp } from "react-icons/fa";
+import { Swiper } from "swiper/react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-
-import { BsTelephone } from "react-icons/bs";
-import { FaRegEnvelope } from "react-icons/fa6";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 // import required modules
 import { Grid, Navigation } from "swiper/modules";
-import Link from "next/link";
-import Image from "next/image";
 
-export default function App() {
+export default function SliderGrid({ data, render }) {
   return (
     <div className="relative">
       <Swiper
@@ -44,146 +38,7 @@ export default function App() {
           },
         }}
       >
-        <SwiperSlide>
-          <article className="text-center flex items-center flex-col gap-3">
-            <figure>
-              <Image src="/person.png" width={200} height={184} alt="person" />
-
-              <figcaption>
-                <p className="font-medium md:text-h22 text-primary my-1">
-                  Name here
-                </p>
-                <p className="opacity-40 uppercase font-bold text-p14 tracking-wide">
-                  Position here
-                </p>
-              </figcaption>
-            </figure>
-
-            <div className="flex items-center justify-center gap-3">
-              <Link href="#">
-                <FaWhatsapp />
-              </Link>
-              <Link href="#">
-                <BsTelephone />
-              </Link>
-              <Link href="#">
-                <FaRegEnvelope />
-              </Link>
-            </div>
-          </article>
-        </SwiperSlide>
-        <SwiperSlide>
-          <article className="text-center flex items-center flex-col gap-3">
-            <figure>
-              <Image src="/person.png" width={200} height={184} alt="person" />
-
-              <figcaption>
-                <p className="font-medium md:text-h22 text-primary my-1">
-                  Name here
-                </p>
-                <p className="opacity-40 uppercase font-bold text-p14 tracking-wide">
-                  Position here
-                </p>
-              </figcaption>
-            </figure>
-
-            <div className="flex items-center justify-center gap-3">
-              <Link href="#">
-                <FaWhatsapp />
-              </Link>
-              <Link href="#">
-                <BsTelephone />
-              </Link>
-              <Link href="#">
-                <FaRegEnvelope />
-              </Link>
-            </div>
-          </article>
-        </SwiperSlide>
-        <SwiperSlide>
-          <article className="text-center flex items-center flex-col gap-3">
-            <figure>
-              <Image src="/person.png" width={200} height={184} alt="person" />
-
-              <figcaption>
-                <p className="font-medium md:text-h22 text-primary my-1">
-                  Name here
-                </p>
-                <p className="opacity-40 uppercase font-bold text-p14 tracking-wide">
-                  Position here
-                </p>
-              </figcaption>
-            </figure>
-
-            <div className="flex items-center justify-center gap-3">
-              <Link href="#">
-                <FaWhatsapp />
-              </Link>
-              <Link href="#">
-                <BsTelephone />
-              </Link>
-              <Link href="#">
-                <FaRegEnvelope />
-              </Link>
-            </div>
-          </article>
-        </SwiperSlide>
-        <SwiperSlide>
-          <article className="text-center flex items-center flex-col gap-3">
-            <figure>
-              <Image src="/person.png" width={200} height={184} alt="person" />
-
-              <figcaption>
-                <p className="font-medium md:text-h22 text-primary my-1">
-                  Name here
-                </p>
-                <p className="opacity-40 uppercase font-bold text-p14 tracking-wide">
-                  Position here
-                </p>
-              </figcaption>
-            </figure>
-
-            <div className="flex items-center justify-center gap-3">
-              <Link href="#">
-                <FaWhatsapp />
-              </Link>
-              <Link href="#">
-                <BsTelephone />
-              </Link>
-              <Link href="#">
-                <FaRegEnvelope />
-              </Link>
-            </div>
-          </article>
-        </SwiperSlide>
-        <SwiperSlide>
-          <article className="text-center flex items-center flex-col gap-3">
-            <figure>
-              <Image src="/person.png" width={200} height={184} alt="person" />
-
-              <figcaption>
-                <p className="font-medium md:text-h22 text-primary my-1">
-                  Name here
-                </p>
-                <p className="opacity-40 uppercase font-bold text-p14 tracking-wide">
-                  Position here
-                </p>
-              </figcaption>
-            </figure>
-
-            <div className="flex items-center justify-center gap-3">
-              <Link href="#">
-                <FaWhatsapp />
-              </Link>
-              <Link href="#">
-                <BsTelephone />
-              </Link>
-              <Link href="#">
-                <FaRegEnvelope />
-              </Link>
-            </div>
-          </article>
-        </SwiperSlide>
+        {data?.map(render)}
       </Swiper>
 
       {/* Arrows OUTSIDE Swiper */}
