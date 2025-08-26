@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { PAGE_SIZE } from "../_utils/config";
 
 export const binhindApi = createApi({
   reducerPath: "binhindApi",
@@ -16,9 +17,10 @@ export const binhindApi = createApi({
       query: () => `client-page`,
     }),
 
-    // Blog Posts (all + by id)
+    // TODO: Blog Posts
     getBlogPosts: builder.query({
-      query: () => `blog-posts`,
+      query: ({ page = 1, pageSize = PAGE_SIZE }) =>
+        `blog-posts?pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
     }),
     getBlogPostById: builder.query({
       query: (id) => `blog-posts/${id}`,
@@ -26,10 +28,10 @@ export const binhindApi = createApi({
 
     // Services / Our Services (all + by id)
     getServices: builder.query({
-      query: () => `services`,
+      query: () => `services?fields=title,slug`,
     }),
     getServiceById: builder.query({
-      query: (id) => `services/${id}`,
+      query: (id) => `services/${id}?populate[article][populate]=*`,
     }),
 
     // Hero Items (all)

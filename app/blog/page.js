@@ -1,5 +1,11 @@
+import Blogs from "../_components/Blogs";
+
 function page() {
-  return <div>Blog</div>;
+  return (
+    <section className="bg-white">
+      <Blogs />
+    </section>
+  );
 }
 
 export default page;

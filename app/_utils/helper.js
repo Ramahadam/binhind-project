@@ -1,7 +1,6 @@
 // Helper to extract text from Strapi rich text blocks
 export const extractSectionText = (data) => {
   const sectionHeaderText = data?.data?.section_header;
-  console.log("sectionHeaderText", data);
 
   const sectionIntroText =
     data?.data?.section_intro

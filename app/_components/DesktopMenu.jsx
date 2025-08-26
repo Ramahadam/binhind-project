@@ -12,7 +12,13 @@ import LanguageButton from "./LanguageButton";
 import BookingButton from "./BookingButton";
 import { useRef } from "react";
 
-function DesktopMenu({ navItems, servicesOpen, setServicesOpen, menuRef }) {
+function DesktopMenu({
+  navItems,
+  servicesOpen,
+  setServicesOpen,
+  menuRef,
+  services,
+}) {
   return (
     <>
       {/* Desktop nav */}
@@ -37,14 +43,14 @@ function DesktopMenu({ navItems, servicesOpen, setServicesOpen, menuRef }) {
 
               {servicesOpen && (
                 <div className="fixed rounded-b-xl left-1/2 mt-6 -translate-x-1/2 pb-9 max-w-[90rem] w-screen grid grid-cols-4 bg-primary text-white shadow-lg z-50">
-                  {item.subItems.map((sub) => (
+                  {services?.map((service) => (
                     <Link
-                      key={sub.href}
-                      href={sub.href}
+                      key={service.id}
+                      href={`/our-services/${service.slug}?id=${service.documentId}`}
                       onClick={() => setServicesOpen(false)}
                       className="block px-6 py-3 hover:bg-primary hover:opacity-40 transition"
                     >
-                      {sub.label}
+                      {service.title}
                     </Link>
                   ))}
                 </div>

@@ -67,8 +67,6 @@ function OurTeamContent() {
     suspense: true,
   });
 
-  console.log(ourTeamsPage);
-
   // Extract header and intro text
   const { sectionHeaderText, sectionIntroText } =
     extractSectionText(ourTeamsPage);

@@ -9,7 +9,9 @@
   /* Custom brand colors */
   --color-primary: #4b2615;
   --color-white: #ffffff;
+  --color-veryLightGray: #fafafa;
   --color-lightGray: #c9beb9;
+  --color-MeduimGray: #979797;
 
   /* Font family */
   --font-sans: var(--font-dm-sans), sans-serif;
@@ -34,7 +36,9 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--color-primary);
   --color-white: var(--color-white);
+  --color-veryLightGray: var(--color-veryLightGray);
   --color-lightGray: var(--color-lightGray);
+  --color-MeduimGray: var(--color-MeduimGray);
   --font-sans: var(--font-sans);
 
   --text-h22: var(--text-h22);

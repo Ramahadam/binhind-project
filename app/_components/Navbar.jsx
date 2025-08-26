@@ -13,6 +13,7 @@ import Image from "next/image";
 import DesktopMenu from "./DesktopMenu";
 import MenuButton from "./MenuButton";
 import MobileMenu from "./MobileMenu";
+import { useGetServicesQuery } from "../_services/binhindApi";
 
 const navItems = [
   { href: "/about-us", label: "About Us" },
@@ -77,8 +78,13 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const { data: services } = useGetServicesQuery();
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+
+  // console.log(services?.data);
+  // BUG Multiple requests are getting fired when clicked on any items in navbar
 
   const menuRef = useRef(null);
 
@@ -109,6 +115,7 @@ export default function Navbar() {
           servicesOpen={servicesOpen}
           setServicesOpen={setServicesOpen}
           menuRef={menuRef}
+          services={services?.data}
         />
 
         {/* Mobile menu button */}

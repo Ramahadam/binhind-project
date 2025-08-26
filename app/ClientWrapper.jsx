@@ -23,9 +23,8 @@ function ClientWrapper() {
     );
 
   // Render background cover
-
   return (
-    <div className="relative h-dvh">
+    <div className="relative ">
       {/**** Reduce the hero cover hight if is not home page****/}
       <Banner height={true} />
     </div>
