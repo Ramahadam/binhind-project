@@ -1,18 +1,19 @@
 import Link from "next/link";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { getPageNumbers } from "../_utils/helper";
 
 function Pagination({ currentPage, pageCount }) {
   // Hide the Pagination if we have one page or no result
   console.log(currentPage);
   if (pageCount <= 1) return null;
 
-  const pages = [];
+  //   const pages = [];
 
-  for (let i = 1; i <= pageCount; i++) {
-    pages.push(i);
-  }
+  //   for (let i = 1; i <= pageCount; i++) {
+  //     pages.push(i);
+  //   }
 
-  console.log(pages);
+  const pages = getPageNumbers(currentPage, pageCount);
 
   return (
     <div className="flex justify-end mt-18 ">
@@ -26,16 +27,20 @@ function Pagination({ currentPage, pageCount }) {
             </Link>
           </li>
 
-          {pages.map((p) => (
-            <li key={p}>
-              <Link
-                href={`?page=${p}`}
-                className={`${p === currentPage && "underline"} `}
-              >
-                {p}
-              </Link>
-            </li>
-          ))}
+          {pages.map((p) =>
+            p === "..." ? (
+              <span>....</span>
+            ) : (
+              <li key={p}>
+                <Link
+                  href={`?page=${p}`}
+                  className={`${p === currentPage && "underline"} `}
+                >
+                  {p}
+                </Link>
+              </li>
+            )
+          )}
 
           <li>
             <Link

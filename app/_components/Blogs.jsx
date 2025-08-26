@@ -23,6 +23,8 @@ function Blogs() {
   const currentPage = blogs?.meta?.pagination?.page || 1;
   const pageCount = blogs?.meta.pagination.pageCount || 1;
 
+  console.log(blogs);
+
   return (
     <section className="text-primary mx-auto grid grid-cols-10 items-start gap-8 py-10">
       <aside className="flex flex-col bg-veryLightGray max-w-fit p-4 gap-8 text-p18 mt-14">
