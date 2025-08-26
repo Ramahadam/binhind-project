@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { GrGooglePlus } from "react-icons/gr";
 import { FaFacebookF } from "react-icons/fa6";
+import SignupForm from "./SignupForm";
 
 function Footer() {
   return (
@@ -14,7 +15,7 @@ function Footer() {
           className="flex flex-col md:flex-row md:justify-end items-center justify-center mb-4 gap-8 "
           aria-label="Newsletter Subscription"
         >
-          <form className="bg-white flex items-center rounded-sm py-1 pr-2">
+          {/* <form className="bg-white flex items-center rounded-sm py-1 pr-2">
             <input
               type="email"
               id="newsletter"
@@ -27,7 +28,8 @@ function Footer() {
             >
               Subscribe
             </button>
-          </form>
+          </form> */}
+          <SignupForm />
           {/* Contact & Social Links */}
           <div
             aria-label="Contact and Social Media"

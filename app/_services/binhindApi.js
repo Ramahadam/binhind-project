@@ -49,11 +49,19 @@ export const binhindApi = createApi({
       query: () => `socail-media-links`,
     }),
 
-    // Subscribers (all)
+    //For Admin Subscribers (all)
     getSubscribers: builder.query({
       query: () => `subscribers`,
     }),
 
+    // POST a new subscriber
+    addSubscriber: builder.mutation({
+      query: (subscriber) => ({
+        url: "subscribers",
+        method: "POST",
+        body: { data: subscriber }, // Strapi expects { data: { ...fields } }
+      }),
+    }),
     // Team Members (all)
     getTeamMembers: builder.query({
       query: () => `team-members?populate=image`,
@@ -63,6 +71,7 @@ export const binhindApi = createApi({
 
 // Export hooks
 export const {
+  useAddSubscriberMutation,
   useGetClientsQuery,
   useGetClientPagesQuery,
   useGetBlogPostsQuery,
