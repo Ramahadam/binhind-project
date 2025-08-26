@@ -29,7 +29,7 @@ function Pagination({ currentPage, pageCount }) {
 
           {pages.map((p) =>
             p === "..." ? (
-              <span>....</span>
+              <span key={p}>....</span>
             ) : (
               <li key={p}>
                 <Link
