@@ -3,6 +3,7 @@ import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLanguage } from "../features/languageSlice";
+import Button from "./Button";
 
 function LangSwitcher() {
   const dispatch = useDispatch();
@@ -22,8 +23,6 @@ function LangSwitcher() {
     return () => document.removeEventListener("mousemove", handleOutsideClick);
   });
 
-  function handleClick(e) {}
-
   return (
     <div className="relative z-50 " ref={langRef}>
       <button
@@ -34,7 +33,29 @@ function LangSwitcher() {
       </button>
       {langOpen && (
         <div className="absolute w-full bg-white rounded-md overflow-auto ">
-          <button
+          <Button
+            variant="secondary"
+            size="sm"
+            fullWidth
+            onClick={() => dispatch(setLanguage("en"))}
+            disabled={lang === "eng"}
+            className="border-0"
+          >
+            EN
+          </Button>
+
+          <Button
+            variant="secondary"
+            size="sm"
+            fullWidth
+            onClick={() => dispatch(setLanguage("ar-SA"))}
+            disabled={lang === "ar"}
+            className="border-0"
+          >
+            AR
+          </Button>
+
+          {/* <button
             onClick={() => dispatch(setLanguage("en"))}
             disabled={lang === "eng"}
             className="block px-4 py-2 hover:bg-lightGray w-full text-left cursor-pointer"
@@ -47,7 +68,7 @@ function LangSwitcher() {
             className="block px-4 py-2 hover:bg-lightGray w-full text-left cursor-pointer"
           >
             AR
-          </button>
+          </button> */}
         </div>
       )}
     </div>

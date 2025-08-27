@@ -37,6 +37,7 @@ i18n.use(initReactI18next).init({
         socialResponsibility: "المسؤولية الاجتماعية",
         ourServices: "خدماتنا",
         about: "معلومات عنا",
+        back: "الرجوع",
       },
     },
   },

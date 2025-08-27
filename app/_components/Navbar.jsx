@@ -83,6 +83,7 @@ export default function Navbar() {
           navItems={navItems}
           servicesOpen={servicesOpen}
           setServicesOpen={setServicesOpen}
+          services={services?.data}
         />
       )}
     </header>

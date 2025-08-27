@@ -12,6 +12,7 @@ import LangSwitcher from "./LangSwitcher";
 import BookingButton from "./BookingButton";
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
+import Button from "./Button";
 
 function DesktopMenu({
   navItems,
@@ -32,7 +33,7 @@ function DesktopMenu({
         {navItems.map((item) =>
           item.label === "services" ? (
             <div key={item.href} className="group relative">
-              <button
+              {/* <button
                 className="flex items-center transition bg-transparent text-white"
                 onClick={() => setServicesOpen(!servicesOpen)}
               >
@@ -42,7 +43,21 @@ function DesktopMenu({
                 ) : (
                   <ChevronDownIcon className="ml-1 h-4 w-4" />
                 )}
-              </button>
+              </button> */}
+              <Button
+                variant="primary"
+                size="md"
+                fullWidth
+                icon={
+                  <ChevronDownIcon
+                    className={`h-4 w-4 ${servicesOpen ? "rotate-180" : ""}`}
+                  />
+                }
+                iconPosition="right"
+                onClick={() => setServicesOpen(!servicesOpen)}
+              >
+                {item.label}
+              </Button>
 
               {servicesOpen && (
                 <div className="fixed rounded-b-xl left-1/2 mt-6 -translate-x-1/2 pb-9 max-w-[90rem] w-screen grid grid-cols-4 bg-primary text-white shadow-lg z-50">

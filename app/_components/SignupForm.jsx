@@ -5,6 +5,7 @@ import SpinnerSmall from "./SpinnerSmall";
 import Message from "./Message";
 import { Suspense, useState } from "react";
 import { useTranslation } from "react-i18next";
+import Button from "./Button";
 
 const SignupForm = () => {
   // Pass the useFormik() hook initial form values and a submit function that will
@@ -72,13 +73,17 @@ const SignupForm = () => {
             {formik.errors.email}
           </span>
         ) : null}
-
+        {/* 
         <button
           type="submit"
           className="bg-primary text-white rounded-sm px-3 py-1 cursor-pointer"
         >
           {t("subscribe")}
-        </button>
+        </button> */}
+
+        <Button type="submit" variant="primary" size="md">
+          {t("subscribe")}
+        </Button>
       </form>
     </>
   );

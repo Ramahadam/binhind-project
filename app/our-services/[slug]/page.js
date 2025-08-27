@@ -6,8 +6,10 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { useGetServiceByIdQuery } from "@/app/_services/binhindApi";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 export default function Service({ params }) {
+  const { t } = useTranslation();
   const lang = useSelector((state) => state.language.lang);
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -19,6 +21,8 @@ export default function Service({ params }) {
     { suspense: true }
   );
 
+  const dir = lang === "ar-SA" ? "RTL" : "LTR";
+
   return (
     <section className="bg-[url(/bitmap.png)] bg-cover object-cover">
       <div className="max-w-7xl mx-auto ">
@@ -27,8 +31,13 @@ export default function Service({ params }) {
           href="#"
           className="flex items-center text-primary mt-4 bg-transparent cursor-pointer"
         >
-          <MdKeyboardArrowLeft className="text-3xl" />
-          <span className="text-p16">Back</span>
+          {dir === "LTR" ? (
+            <MdKeyboardArrowLeft className="text-3xl" />
+          ) : (
+            <MdKeyboardArrowRight className="text-3xl" />
+          )}
+
+          <span className="text-p16">{t("back")}</span>
         </button>
 
         <header className="mt-[5rem]">

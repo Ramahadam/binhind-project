@@ -1,6 +1,6 @@
 "use client";
 
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { MdKeyboardArrowLeft } from "react-icons/md";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useGetBlogPostsQuery } from "../_services/binhindApi";
 import Link from "next/link";
@@ -25,8 +25,6 @@ function Blogs() {
 
   const currentPage = blogs?.meta?.pagination?.page || 1;
   const pageCount = blogs?.meta.pagination.pageCount || 1;
-
-  console.log(blogs);
 
   return (
     <section className="text-primary mx-auto grid grid-cols-10 items-start gap-8 py-10">
