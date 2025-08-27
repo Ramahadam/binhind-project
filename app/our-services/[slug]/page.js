@@ -5,14 +5,19 @@ import Link from "next/link";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { useGetServiceByIdQuery } from "@/app/_services/binhindApi";
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
 
 export default function Service({ params }) {
+  const lang = useSelector((state) => state.language.lang);
   const searchParams = useSearchParams();
   const router = useRouter();
 
   const id = searchParams.get("id");
 
-  const { data: service } = useGetServiceByIdQuery(id, { suspense: true });
+  const { data: service } = useGetServiceByIdQuery(
+    { id, lang },
+    { suspense: true }
+  );
 
   return (
     <section className="bg-[url(/bitmap.png)] bg-cover object-cover">

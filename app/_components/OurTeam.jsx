@@ -17,6 +17,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { BsTelephone } from "react-icons/bs";
 import { FaRegEnvelope } from "react-icons/fa6";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 // Render Props Pattern
 const render = (team) => (
@@ -58,12 +59,13 @@ const render = (team) => (
 
 function OurTeamContent() {
   // Fetch client header text & intro text
-  const { data: ourTeamsPage } = useGetOurTeamsQuery(undefined, {
+  const lang = useSelector((state) => state.language.lang);
+  const { data: ourTeamsPage } = useGetOurTeamsQuery(lang, {
     suspense: true,
   });
 
   // Fetch clients testimonials (qoute, image, name, company/position)
-  const { data: ourTeams } = useGetTeamMembersQuery(undefined, {
+  const { data: ourTeams } = useGetTeamMembersQuery(lang, {
     suspense: true,
   });
 

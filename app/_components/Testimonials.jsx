@@ -11,6 +11,7 @@ import Spinner from "./Spinner";
 import { Suspense } from "react";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import Message from "./Message";
+import { useSelector } from "react-redux";
 
 // Render Props Pattern
 const render = (client) => (
@@ -47,12 +48,13 @@ const render = (client) => (
 
 function TestimonialsContent() {
   // Fetch client header text & intro text
-  const { data: clientsPages } = useGetClientPagesQuery(undefined, {
+  const lang = useSelector((state) => state.language.lang);
+  const { data: clientsPages } = useGetClientPagesQuery(lang, {
     suspense: true,
   });
 
   // Fetch clients testimonials (qoute, image, name, company/position)
-  const { data: clients } = useGetClientsQuery(undefined, {
+  const { data: clients } = useGetClientsQuery(lang, {
     suspense: true,
   });
 

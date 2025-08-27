@@ -12,6 +12,7 @@ import Spinner from "./Spinner";
 import { Suspense } from "react";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import Message from "./Message";
+import { useSelector } from "react-redux";
 
 // Render Props Pattern
 const render = (client) => (
@@ -43,7 +44,8 @@ const render = (client) => (
 
 function HeroSectionContent() {
   // Fetch clients testimonials (qoute, image, name, company/position)
-  const { data: heroItems } = useGetHeroItemsQuery(undefined, {
+  const lang = useSelector((state) => state.language.lang);
+  const { data: heroItems } = useGetHeroItemsQuery(lang, {
     suspense: true,
   });
 

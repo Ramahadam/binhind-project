@@ -6,14 +6,17 @@ import { useGetBlogPostsQuery } from "../_services/binhindApi";
 import Link from "next/link";
 import { PAGE_SIZE } from "../_utils/config";
 import Pagination from "./Pagination";
+import { useSelector } from "react-redux";
 
 function Blogs() {
+  const lang = useSelector((state) => state.language.lang);
+
   const searchParams = useSearchParams();
 
   const page = Number(searchParams.get("page")) || 1;
 
   const { data: blogs } = useGetBlogPostsQuery(
-    { page, pageSize: PAGE_SIZE },
+    { page, pageSize: PAGE_SIZE, lang },
     {
       suspense: true,
     }

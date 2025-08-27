@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import SearchInput from "./SearchInput";
-import LanguageButton from "./LanguageButton";
+import LangSwitcher from "./LangSwitcher";
 import BookingButton from "./BookingButton";
 import { useRef } from "react";
 
@@ -75,7 +75,7 @@ function DesktopMenu({
         {/* Search */}
         <SearchInput />
         {/* Language */}
-        <LanguageButton />
+        <LangSwitcher />
         {/* Booking */}
         <BookingButton />
       </div>

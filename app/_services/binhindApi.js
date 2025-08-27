@@ -9,49 +9,50 @@ export const binhindApi = createApi({
   endpoints: (builder) => ({
     // Clients (all)
     getClients: builder.query({
-      query: () => `clients?populate=image`,
+      query: (lang) => `clients?locale=${lang}&populate=image`,
     }),
 
     // Client Pages (all)
     getClientPages: builder.query({
-      query: () => `client-page`,
+      query: (lang) => `client-page?locale=${lang}`,
     }),
 
     // TODO: Blog Posts
     getBlogPosts: builder.query({
-      query: ({ page = 1, pageSize = PAGE_SIZE }) =>
-        `blog-posts?pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
+      query: ({ page = 1, pageSize = PAGE_SIZE, lang }) =>
+        `blog-posts?locale=${lang}&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
     }),
     getBlogPostById: builder.query({
-      query: (id) => `blog-posts/${id}`,
+      query: ({ id, lang }) => `blog-posts/${id}&locale=${lang}`,
     }),
 
     // Services / Our Services (all + by id)
     getServices: builder.query({
-      query: () => `services?fields=title,slug`,
+      query: (lang) => `services?locale=${lang}&fields=title,slug`,
     }),
     getServiceById: builder.query({
-      query: (id) => `services/${id}?populate[article][populate]=*`,
+      query: ({ id, lang }) =>
+        `services/${id}?locale=${lang}&populate[article][populate]=*`,
     }),
 
     // Hero Items (all)
     getHeroItems: builder.query({
-      query: () => `hero-items?populate=image`,
+      query: (lang) => `hero-items?locale=${lang}&populate=image`,
     }),
 
     // Our Teams (all)
     getOurTeams: builder.query({
-      query: () => `our-team?populate=image`,
+      query: (lang) => `our-team?locale=${lang}&populate=image`,
     }),
 
     // Social Media Links (all)
     getSocialMediaLinks: builder.query({
-      query: () => `socail-media-links`,
+      query: (lang) => `socail-media-links?locale=${lang}`,
     }),
 
     //For Admin Subscribers (all)
     getSubscribers: builder.query({
-      query: () => `subscribers`,
+      query: (lang) => `subscribers?locale=${lang}`,
     }),
 
     // POST a new subscriber
@@ -64,7 +65,7 @@ export const binhindApi = createApi({
     }),
     // Team Members (all)
     getTeamMembers: builder.query({
-      query: () => `team-members?populate=image`,
+      query: (lang) => `team-members?locale=${lang}&populate=image`,
     }),
   }),
 });

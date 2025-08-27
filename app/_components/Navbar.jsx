@@ -14,6 +14,7 @@ import DesktopMenu from "./DesktopMenu";
 import MenuButton from "./MenuButton";
 import MobileMenu from "./MobileMenu";
 import { useGetServicesQuery } from "../_services/binhindApi";
+import { useSelector } from "react-redux";
 
 const navItems = [
   { href: "/about-us", label: "About Us" },
@@ -78,7 +79,8 @@ const navItems = [
 ];
 
 export default function Navbar() {
-  const { data: services } = useGetServicesQuery();
+  const lang = useSelector((state) => state.language.lang);
+  const { data: services } = useGetServicesQuery(lang);
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
