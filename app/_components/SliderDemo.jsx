@@ -9,12 +9,18 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import { useSelector } from "react-redux";
 
 export default function SliderDemo({ data, render }) {
+  const lang = useSelector((state) => state.language.lang);
+  const langDir = lang === "ar-SA" ? "RTL" : "LTR";
+
   return (
     <div className="relative flex items-center justify-center h-full">
       <div className=" relative"></div>
       <Swiper
+        key={langDir}
+        dir={langDir}
         direction="horizontal" // slides move horizontally
         modules={[Navigation, Pagination]}
         navigation={{

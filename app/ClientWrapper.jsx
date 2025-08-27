@@ -1,34 +1,20 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import Banner from "./_components/Banner";
+import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import HeroSection from "./_components/HeroSection";
 
-function ClientWrapper() {
-  const pathname = usePathname();
+// app/layout.js
+
+export default function ClientWrapper({ children }) {
+  const lang = useSelector((state) => state.language.lang);
 
   useEffect(() => {
-    // Scroll to top whenever route changes
+    // Update html lang attribute
+    if (typeof window !== "undefined") {
+      document.documentElement.lang = lang.startsWith("ar") ? "ar" : "en";
+      document.documentElement.dir = lang.startsWith("ar") ? "rtl" : "ltr";
+    }
+  }, [lang]);
 
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  // Render the slider on home page
-  if (pathname === "/")
-    return (
-      <Banner>
-        <HeroSection />
-      </Banner>
-    );
-
-  // Render background cover
-  return (
-    <div className="relative ">
-      {/**** Reduce the hero cover hight if is not home page****/}
-      <Banner height={true} />
-    </div>
-  );
+  return <div>{children}</div>;
 }
-
-export default ClientWrapper;

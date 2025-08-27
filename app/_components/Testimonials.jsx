@@ -62,11 +62,17 @@ function TestimonialsContent() {
   const { sectionHeaderText, sectionIntroText } =
     extractSectionText(clientsPages);
 
+  const dir = lang === "ar-SA" ? "RTL" : "LTR";
+
   return (
     <section className="bg-primary md:py-[10rem] py-[4rem] px-4 md:px-0">
       <article className="md:w-7xl mx-auto">
-        <header className="text-center md:text-left">
-          <h2 className="text-white md:text-h42 md:font-bold text-h40">
+        <header className={`text-center md:text-left`}>
+          <h2
+            className={`text-white md:text-h42 md:font-bold text-h40 ${
+              dir === "RTL" && "md:text-right"
+            }`}
+          >
             {sectionHeaderText}
           </h2>
           <p className="text-white font-regular md:text-balance max-w-[36rem] opacity-70">

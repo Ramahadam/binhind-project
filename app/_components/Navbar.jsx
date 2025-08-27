@@ -17,65 +17,14 @@ import { useGetServicesQuery } from "../_services/binhindApi";
 import { useSelector } from "react-redux";
 
 const navItems = [
-  { href: "/about-us", label: "About Us" },
+  { href: "/about-us", label: "aboutUs" },
   {
     href: "/our-services",
-    label: "Services",
-    subItems: [
-      {
-        href: "/our-services/legal-consultation",
-        label: "Legal Consultation Services",
-      },
-      { href: "/our-services/defense", label: "… and Defense in All Cases" },
-      {
-        href: "/our-services/companies-institutions",
-        label: "Services for Companies and Institutions",
-      },
-      {
-        href: "/our-services/company-establishment",
-        label: "Establishing National and Foreign Companies",
-      },
-      {
-        href: "/our-services/foreign-investment",
-        label: "Foreign Investment Services",
-      },
-      {
-        href: "/our-services/banks-finance",
-        label: "Banks and Financial Institutions",
-      },
-      { href: "/our-services/arbitration", label: "Arbitration" },
-      {
-        href: "/our-services/commercial-agencies",
-        label: "Commercial Agencies",
-      },
-      { href: "/our-services/contracts", label: "Contracts" },
-      {
-        href: "/our-services/corporate-governance",
-        label: "Corporate Governance Services",
-      },
-      {
-        href: "/our-services/intellectual-property",
-        label: "Intellectual Property",
-      },
-      { href: "/our-services/vision-2030", label: "Supporting Vision 2030" },
-      { href: "/our-services/notarization", label: "Notarization" },
-      { href: "/our-services/liquidation", label: "Companies Liquidation" },
-      {
-        href: "/our-services/restructuring",
-        label: "Corporate Restructuring and Reorganization",
-      },
-      { href: "/our-services/estates", label: "Estates" },
-      { href: "/our-services/insurance", label: "Insurance" },
-      {
-        href: "/our-services/internal-regulations",
-        label: "Internal Regulations for Companies",
-      },
-      { href: "/our-services", label: "See More" },
-    ],
+    label: "services",
   },
-  { href: "/our-team", label: "Our Team" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact-us", label: "Contact Us" },
+  { href: "/our-team", label: "ourTeam" },
+  { href: "/blog", label: "blog" },
+  { href: "/contact-us", label: "contactUs" },
 ];
 
 export default function Navbar() {
@@ -98,9 +47,9 @@ export default function Navbar() {
       }
     }
 
-    document.addEventListener("click", handleOusideClick);
+    document.addEventListener("mousemove", handleOusideClick);
 
-    return () => document.removeEventListener("click", handleOusideClick);
+    return () => document.removeEventListener("mousemove", handleOusideClick);
   }, [setServicesOpen]);
 
   return (

@@ -1,16 +1,31 @@
 "use client";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLanguage } from "../features/languageSlice";
 
 function LangSwitcher() {
   const dispatch = useDispatch();
   const lang = useSelector((state) => state.language.lang);
-
+  const langRef = useRef(null);
   const [langOpen, setLangOpen] = useState(false);
+
+  useEffect(() => {
+    function handleOutsideClick(e) {
+      if (langRef.current && !langRef.current.contains(e.target)) {
+        setLangOpen(() => false);
+      }
+    }
+
+    document.addEventListener("mousemove", handleOutsideClick);
+
+    return () => document.removeEventListener("mousemove", handleOutsideClick);
+  });
+
+  function handleClick(e) {}
+
   return (
-    <div className="relative z-50">
+    <div className="relative z-50 " ref={langRef}>
       <button
         onClick={() => setLangOpen(!langOpen)}
         className="px-4 py-2 border rounded-md   flex items-center justify-between "

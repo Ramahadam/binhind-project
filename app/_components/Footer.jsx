@@ -1,3 +1,4 @@
+"use client";
 import { FaFacebook, FaGooglePlus, FaTwitter } from "react-icons/fa";
 
 import Link from "next/link";
@@ -5,8 +6,11 @@ import Link from "next/link";
 import { GrGooglePlus } from "react-icons/gr";
 import { FaFacebookF } from "react-icons/fa6";
 import SignupForm from "./SignupForm";
+import { useTranslation } from "react-i18next";
 
 function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-primary py-[3.5rem] flex flex-col mt-[8rem] text-p14 text-white md:text-p16 ">
       <div className="wrapper max-w-7xl md:w-[80rem] mx-auto ">
@@ -35,7 +39,7 @@ function Footer() {
             aria-label="Contact and Social Media"
             className="flex items-center gap-4 justify-center md:justify-end"
           >
-            <Link href="/contact">Contacts</Link>
+            <Link href="/contact">{t("contacts")}</Link>
             <nav aria-label="Social Media Links">
               <ul className="flex gap-4">
                 <li>
@@ -67,23 +71,28 @@ function Footer() {
         >
           <ul className="flex gap-4 flex-col md:flex-row">
             <li>
-              <Link href="/about">About</Link>
+              <Link href="/about">{t("about")}</Link>
             </li>
             <li>
-              <Link href="/strategy">Our Strategy</Link>
+              <Link href="/strategy">{t("ourStrategy")}</Link>
             </li>
             <li>
-              <Link href="/advantages">Our Advantages</Link>
+              <Link href="/advantages">{t("ourAdvantages")}</Link>
             </li>
             <li>
-              <Link href="/social-responsibility">Social Responsibility</Link>
+              <Link href="/social-responsibility">
+                {t("socialResponsibility")}
+              </Link>
             </li>
             <li>
-              <Link href="/services">Our Services</Link>
+              <Link href="/services">{t("ourServices")}</Link>
             </li>
           </ul>
 
-          <p>&copy; {new Date().getFullYear()} All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()}
+            {t("copyRights")}
+          </p>
         </nav>
       </div>
     </footer>

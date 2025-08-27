@@ -11,6 +11,7 @@ import SearchInput from "./SearchInput";
 import LangSwitcher from "./LangSwitcher";
 import BookingButton from "./BookingButton";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 function DesktopMenu({
   navItems,
@@ -19,6 +20,8 @@ function DesktopMenu({
   menuRef,
   services,
 }) {
+  const { t } = useTranslation();
+
   return (
     <>
       {/* Desktop nav */}
@@ -27,13 +30,13 @@ function DesktopMenu({
         ref={menuRef}
       >
         {navItems.map((item) =>
-          item.subItems ? (
+          item.label === "services" ? (
             <div key={item.href} className="group relative">
               <button
                 className="flex items-center transition bg-transparent text-white"
                 onClick={() => setServicesOpen(!servicesOpen)}
               >
-                {item.label}
+                {t(item.label)}
                 {servicesOpen ? (
                   <ChevronUpIcon className="ml-1 h-4 w-4" />
                 ) : (
@@ -63,7 +66,7 @@ function DesktopMenu({
               onClick={() => setServicesOpen(false)}
               className="text-paragraph hover:text-primary transition"
             >
-              {item.label}
+              {t(item.label)}
             </Link>
           )
         )}

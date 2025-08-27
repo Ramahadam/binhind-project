@@ -11,11 +11,6 @@ import OurTeam from "./_components/OurTeam";
 export default function Home() {
   return (
     <div>
-      {/* Section 01 */}
-      {/* <Banner>
-        <SliderDemo />
-      </Banner> */}
-
       <OurTeam />
 
       <Testimonials />

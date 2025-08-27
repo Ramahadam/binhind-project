@@ -9,11 +9,17 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 // import required modules
 import { Grid, Navigation } from "swiper/modules";
+import { useSelector } from "react-redux";
 
 export default function SliderGrid({ data, render }) {
+  const lang = useSelector((state) => state.language.lang);
+  const langDir = lang === "ar-SA" ? "RTL" : "LTR";
+
   return (
     <div className="relative">
       <Swiper
+        key={langDir}
+        dir={langDir}
         navigation={{
           prevEl: ".custom-prev-ourteam",
           nextEl: ".custom-next-ourteam",
