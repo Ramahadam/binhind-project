@@ -35,8 +35,48 @@ export default function Service({ params }) {
           <h2 className="section-header">{service?.data?.title}</h2>
           <p className="section-intro">{service?.data?.description}</p>
         </header>
+        <article dir={lang === "ar-SA" ? "rtl" : "ltr"}>
+          {service?.data?.article?.map((section) => (
+            <div key={section.id}>
+              <h3 className="my-8">{section?.article_header}</h3>
+              <div
+                className={`
+          md:max-w-[58rem]
+          ${lang === "ar-SA" ? "border-r-4 pr-4" : "border-l-4 pl-4"}
+          border-lightGray
+        `}
+              >
+                <div
+                  className={`
+            list-disc relative before:h-3 before:w-3 before:bg-primary before:absolute before:top-[6px]
+            ${lang === "ar-SA" ? "before:right-4" : "before:left-4"}
+          `}
+                >
+                  <div className={lang === "ar-SA" ? "md:mr-8" : "md:ml-8"}>
+                    {section?.article_description}
+                    <ul className="list-none space-y-2">
+                      {section?.article_items?.map((listItem) => (
+                        <li key={listItem.id}>
+                          <h4 className="my-6"></h4>
+                          <p
+                            className={`
+                      before:content-['-'] before:inline-block
+                      ${lang === "ar-SA" ? "before:ml-2" : "before:mr-2"}
+                    `}
+                          >
+                            {listItem.item}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </article>
 
-        <article>
+        {/* <article>
           {service?.data?.article?.map((section) => (
             <div key={section.id}>
               <h3 className="my-8">{section?.article_header}</h3>
@@ -49,20 +89,20 @@ export default function Service({ params }) {
                         section?.article_items.map((listItem) => (
                           <li key={listItem.id}>
                             <h4 className="my-6">
-                              {/* Our advisory services about: */}
+                              {/* Our advisory services about: 
                             </h4>
                             <p className="before:content-['-'] before:mr-2 before:inline-block">
                               {listItem.item}
                             </p>
                           </li>
-                        ))}{" "}
+                        ))}
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
           ))}
-        </article>
+        </article> */}
 
         <footer className="mt-[5rem]">
           <p>{service?.data?.service_footer_text}</p>

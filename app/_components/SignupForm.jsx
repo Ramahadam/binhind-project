@@ -4,11 +4,12 @@ import { useAddSubscriberMutation } from "../_services/binhindApi";
 import SpinnerSmall from "./SpinnerSmall";
 import Message from "./Message";
 import { Suspense, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const SignupForm = () => {
   // Pass the useFormik() hook initial form values and a submit function that will
   // be called when the form is submitted
-
+  const { t } = useTranslation();
   const [addSubscriber, { isLoading, isSuccess, isError, error, data }] =
     useAddSubscriberMutation(undefined, { suspense: true });
 
@@ -76,7 +77,7 @@ const SignupForm = () => {
           type="submit"
           className="bg-primary text-white rounded-sm px-3 py-1 cursor-pointer"
         >
-          Subscribe
+          {t("subscribe")}
         </button>
       </form>
     </>
