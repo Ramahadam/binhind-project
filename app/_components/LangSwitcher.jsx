@@ -25,12 +25,14 @@ function LangSwitcher() {
 
   return (
     <div className="relative z-50 " ref={langRef}>
-      <button
+      <Button
         onClick={() => setLangOpen(!langOpen)}
-        className="px-4 py-2 border rounded-md   flex items-center justify-between "
+        icon={<ChevronDownIcon className="h-4 w-4" />}
+        iconPosition={lang === "en" ? "right" : "left"}
+        className="btn-lang px-4 py-2 border rounded-md flex !items-center gap-2 !justify-between border-MeduimGray"
       >
-        EN <ChevronDownIcon className="ml-1 h-4 w-4" />
-      </button>
+        {lang}
+      </Button>
       {langOpen && (
         <div className="absolute w-full bg-white rounded-md overflow-auto ">
           <Button
@@ -54,21 +56,6 @@ function LangSwitcher() {
           >
             AR
           </Button>
-
-          {/* <button
-            onClick={() => dispatch(setLanguage("en"))}
-            disabled={lang === "eng"}
-            className="block px-4 py-2 hover:bg-lightGray w-full text-left cursor-pointer"
-          >
-            EN
-          </button>
-          <button
-            disabled={lang === "ar"}
-            onClick={() => dispatch(setLanguage("ar-SA"))}
-            className="block px-4 py-2 hover:bg-lightGray w-full text-left cursor-pointer"
-          >
-            AR
-          </button> */}
         </div>
       )}
     </div>

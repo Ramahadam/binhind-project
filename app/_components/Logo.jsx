@@ -4,7 +4,13 @@ import Link from "next/link";
 function Logo() {
   return (
     <Link href="/" className="">
-      <Image src="./logo.svg" alt="" width={120} height={120} />
+      <Image
+        src="./logo.svg"
+        alt=""
+        width={120}
+        height={120}
+        className="w-auto h-auto"
+      />
     </Link>
   );
 }

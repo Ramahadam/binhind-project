@@ -56,7 +56,7 @@ function DesktopMenu({
                 iconPosition="right"
                 onClick={() => setServicesOpen(!servicesOpen)}
               >
-                {item.label}
+                {t(item.label)}
               </Button>
 
               {servicesOpen && (

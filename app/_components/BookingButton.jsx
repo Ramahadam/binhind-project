@@ -7,7 +7,7 @@ function BookingButton() {
   return (
     <Link
       href="/booking"
-      className="px-6 py-2 bg-white text-primary rounded-md shadow hover:opacity-80 transition w-[12rem] "
+      className="px-6 py-2   text-white rounded-md border border-MeduimGray hover:opacity-80 transition w-[12rem] text-center"
     >
       {t("bookAppointment")}
     </Link>

@@ -7,6 +7,7 @@ import SearchInput from "./SearchInput";
 import LangSwitcher from "./LangSwitcher";
 import BookingButton from "./BookingButton";
 import Button from "./Button";
+import { useTranslation } from "react-i18next";
 function MobileMenu({
   navItems,
   servicesOpen,
@@ -14,7 +15,8 @@ function MobileMenu({
   setServicesOpen,
   menuRef,
 }) {
-  console.log(services);
+  const { t } = useTranslation();
+
   return (
     <nav
       className="md:hidden mt-2 flex flex-col space-y-2 px-4 bg-primary py-4 w-full h-dvh"
@@ -22,7 +24,7 @@ function MobileMenu({
     >
       {navItems.map((item) =>
         item.label === "services" ? (
-          <div key={item.href}>
+          <div key={item.label}>
             {/* <button
               onClick={() => setServicesOpen(!servicesOpen)}
               className="flex justify-between items-center w-full py-2 text-left"
@@ -46,34 +48,37 @@ function MobileMenu({
               }
               iconPosition="right"
               onClick={() => setServicesOpen(!servicesOpen)}
-              className="!text-left justify-start px-0 "
+              className="!text-left justify-start !px-0"
             >
-              {item.label}
+              {t(item.label)}
             </Button>
-            {servicesOpen && (
-              <div className="p-2 flex flex-col space-y-1 overflow-scroll max-h-40 bg-red-50 text-primary w-full">
-                {services?.map((service, idx) => (
-                  <Link
-                    key={service.id}
-                    href={`/our-services/${service.slug}?id=${service.documentId}`}
-                    className="py-1 hover:text-primary"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {console.log(idx)}
-                    {service.title}
-                  </Link>
-                ))}
-              </div>
-            )}
+
+            {
+              //List of services
+              servicesOpen && (
+                <div className="p-2 flex flex-col space-y-1 overflow-scroll max-h-40 bg-red-50 text-primary w-full">
+                  {services?.map((service, idx) => (
+                    <Link
+                      key={service.id}
+                      href={`/our-services/${service.slug}?id=${service.documentId}`}
+                      className="py-1 hover:text-primary"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {service.title}
+                    </Link>
+                  ))}
+                </div>
+              )
+            }
           </div>
         ) : (
-          <Link
+          <Link //Other pages
             key={item.href}
             href={item.href}
             className="py-1 hover:text-primary"
             onClick={() => setMenuOpen(false)}
           >
-            {item.label}
+            {t(item.label)}
           </Link>
         )
       )}

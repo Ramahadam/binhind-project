@@ -80,6 +80,7 @@ export default function Navbar() {
       {/* Mobile nav dropdown */}
       {menuOpen && (
         <MobileMenu
+          menuRef={menuRef}
           navItems={navItems}
           servicesOpen={servicesOpen}
           setServicesOpen={setServicesOpen}

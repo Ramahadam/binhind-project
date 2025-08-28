@@ -52,11 +52,11 @@ export default function Button({
       {...props}
     >
       {icon && iconPosition === "left" && (
-        <span className="mr-2 flex-shrink-0">{icon}</span>
+        <span className="flex-shrink-0">{icon}</span>
       )}
       {children}
       {icon && iconPosition === "right" && (
-        <span className="ml-2 flex-shrink-0">{icon}</span>
+        <span className="flex-shrink-0">{icon}</span>
       )}
     </button>
   );

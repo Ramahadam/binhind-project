@@ -16,6 +16,10 @@ export const binhindApi = createApi({
     getClientPages: builder.query({
       query: (lang) => `client-page?locale=${lang}`,
     }),
+    // About Page
+    getAboutPage: builder.query({
+      query: (lang) => `about-us?locale=${lang}`,
+    }),
 
     // TODO: Blog Posts
     getBlogPosts: builder.query({
@@ -75,6 +79,7 @@ export const {
   useAddSubscriberMutation,
   useGetClientsQuery,
   useGetClientPagesQuery,
+  useGetAboutPageQuery,
   useGetBlogPostsQuery,
   useGetBlogPostByIdQuery,
   useGetServicesQuery,
