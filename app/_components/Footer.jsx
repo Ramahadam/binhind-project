@@ -1,5 +1,5 @@
 "use client";
-import { FaFacebook, FaGooglePlus, FaTwitter } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
 
 import Link from "next/link";
 
@@ -39,7 +39,7 @@ function Footer() {
             aria-label="Contact and Social Media"
             className="flex items-center gap-4 justify-center md:justify-end"
           >
-            <Link href="/contact">{t("contacts")}</Link>
+            <p>{t("contacts")}</p>
             <nav aria-label="Social Media Links">
               <ul className="flex gap-4">
                 <li>
@@ -71,7 +71,7 @@ function Footer() {
         >
           <ul className="flex gap-4 flex-col md:flex-row">
             <li>
-              <Link href="/about">{t("about")}</Link>
+              <Link href="/about-us">{t("about")}</Link>
             </li>
             <li>
               <Link href="/strategy">{t("ourStrategy")}</Link>

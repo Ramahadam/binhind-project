@@ -73,15 +73,8 @@ const SignupForm = () => {
             {formik.errors.email}
           </span>
         ) : null}
-        {/* 
-        <button
-          type="submit"
-          className="bg-primary text-white rounded-sm px-3 py-1 cursor-pointer"
-        >
-          {t("subscribe")}
-        </button> */}
 
-        <Button type="submit" variant="primary" size="md">
+        <Button type="submit" variant="primary" size="md" className={`ml-2`}>
           {t("subscribe")}
         </Button>
       </form>

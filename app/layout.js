@@ -6,6 +6,7 @@ import Banner from "./_components/Banner";
 import RenderBanner from "./RenderBanner";
 import ReduxProviderWrapper from "./_components/ReduxProviderWrapper";
 import ClientWrapper from "./ClientWrapper";
+import Footer from "./_components/Footer";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -30,6 +31,7 @@ export default async function RootLayout({ children }) {
             <Navbar />
             <RenderBanner />
             {children}
+            <Footer />
           </ClientWrapper>
         </ReduxProviderWrapper>
       </body>

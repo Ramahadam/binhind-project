@@ -12,9 +12,7 @@ export default function Home() {
   return (
     <div>
       <OurTeam />
-
       <Testimonials />
-      <Footer />
     </div>
   );
 }
