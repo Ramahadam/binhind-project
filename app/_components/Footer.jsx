@@ -19,20 +19,6 @@ function Footer() {
           className="flex flex-col md:flex-row md:justify-end items-center justify-center mb-4 gap-8 "
           aria-label="Newsletter Subscription"
         >
-          {/* <form className="bg-white flex items-center rounded-sm py-1 pr-2">
-            <input
-              type="email"
-              id="newsletter"
-              placeholder="Email"
-              className="outline-0 pl-2"
-            />
-            <button
-              type="submit"
-              className="bg-primary text-white rounded-sm px-3 py-1 cursor-pointer"
-            >
-              Subscribe
-            </button>
-          </form> */}
           <SignupForm />
           {/* Contact & Social Links */}
           <div

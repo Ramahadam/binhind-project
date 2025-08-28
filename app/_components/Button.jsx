@@ -1,18 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-/**
- * Reusable Button Component
- *
- * Props:
- * - variant: "primary" | "secondary" | "ghost" | "icon" (default: "primary")
- * - size: "sm" | "md" | "lg" (default: "md")
- * - icon: ReactNode (optional)
- * - iconPosition: "left" | "right" (default: "left")
- * - fullWidth: boolean
- * - className: extra tailwind classes
- * - ...props: any HTML button props
- */
+
 export default function Button({
   children,
   variant = "primary",

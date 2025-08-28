@@ -1,11 +1,7 @@
 "use client";
 import Image from "next/image";
-import {
-  useGetClientPagesQuery,
-  useGetClientsQuery,
-  useGetHeroItemsQuery,
-} from "../_services/binhindApi";
-import { constructImageUrl, extractSectionText } from "../_utils/helper";
+import { useGetHeroItemsQuery } from "../_services/binhindApi";
+import { constructImageUrl } from "../_utils/helper";
 import SliderDemo from "./SliderDemo";
 import { SwiperSlide } from "swiper/react";
 import Spinner from "./Spinner";

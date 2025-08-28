@@ -8,8 +8,6 @@ import { useTranslation } from "react-i18next";
 import Button from "./Button";
 
 const SignupForm = () => {
-  // Pass the useFormik() hook initial form values and a submit function that will
-  // be called when the form is submitted
   const { t } = useTranslation();
   const [addSubscriber, { isLoading, isSuccess, isError, error, data }] =
     useAddSubscriberMutation(undefined, { suspense: true });

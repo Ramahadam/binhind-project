@@ -8,6 +8,7 @@ import LangSwitcher from "./LangSwitcher";
 import BookingButton from "./BookingButton";
 import Button from "./Button";
 import { useTranslation } from "react-i18next";
+import { renderNavbarLinks } from "../_utils/helper";
 function MobileMenu({
   navItems,
   servicesOpen,
@@ -16,27 +17,15 @@ function MobileMenu({
   menuRef,
 }) {
   const { t } = useTranslation();
-
+  const isMobileNav = true;
   return (
     <nav
       className="md:hidden mt-2 flex flex-col space-y-2 px-4 bg-primary py-4 w-full h-dvh"
       ref={menuRef}
     >
-      {navItems.map((item) =>
+      {/* {navItems.map((item) =>
         item.label === "services" ? (
           <div key={item.label}>
-            {/* <button
-              onClick={() => setServicesOpen(!servicesOpen)}
-              className="flex justify-between items-center w-full py-2 text-left"
-            >
-              {item.label}
-              <ChevronDownIcon
-                className={`h-4 w-4 transition-transform ${
-                  servicesOpen ? "rotate-180" : ""
-                }`}
-              />
-            </button> */}
-
             <Button
               variant="primary"
               size="md"
@@ -81,6 +70,15 @@ function MobileMenu({
             {t(item.label)}
           </Link>
         )
+      )} */}
+
+      {renderNavbarLinks(
+        navItems,
+        servicesOpen,
+        setServicesOpen,
+        services,
+        t,
+        isMobileNav
       )}
 
       {/* Mobile: Search, Language, Booking in column */}
