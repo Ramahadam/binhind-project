@@ -1,16 +1,9 @@
 "use client";
-import {
-  Bars3Icon,
-  XMarkIcon,
-  ChevronDownIcon,
-  ChevronUpIcon,
-  MagnifyingGlassIcon,
-} from "@heroicons/react/24/outline";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import SearchInput from "./SearchInput";
 import LangSwitcher from "./LangSwitcher";
 import BookingButton from "./BookingButton";
-import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import Button from "./Button";
 
@@ -33,17 +26,6 @@ function DesktopMenu({
         {navItems.map((item) =>
           item.label === "services" ? (
             <div key={item.href} className="group relative">
-              {/* <button
-                className="flex items-center transition bg-transparent text-white"
-                onClick={() => setServicesOpen(!servicesOpen)}
-              >
-                {t(item.label)}
-                {servicesOpen ? (
-                  <ChevronUpIcon className="ml-1 h-4 w-4" />
-                ) : (
-                  <ChevronDownIcon className="ml-1 h-4 w-4" />
-                )}
-              </button> */}
               <Button
                 variant="primary"
                 size="md"
@@ -79,7 +61,7 @@ function DesktopMenu({
               key={item.href}
               href={item.href}
               onClick={() => setServicesOpen(false)}
-              className="text-paragraph hover:text-primary transition"
+              className="text-paragraph hover:text-lightGray transition"
             >
               {t(item.label)}
             </Link>
@@ -87,8 +69,6 @@ function DesktopMenu({
         )}
       </nav>
 
-      {/* Desktop right side (Search, Language, Booking) */}
-      {/* Mobile: Search, Language, Booking in column */}
       <div className="hidden  md:flex items-center gap-4">
         {/* Search */}
         <SearchInput />
