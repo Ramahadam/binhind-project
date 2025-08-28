@@ -8,6 +8,7 @@ i18n.use(initReactI18next).init({
       translation: {
         services: "Services",
         blog: "Blog",
+        about: "About",
         aboutUs: "About Us",
         contacts: "contacts",
         contactUs: "Contact Us",
@@ -18,6 +19,7 @@ i18n.use(initReactI18next).init({
         socialResponsibility: "Social Responsibility",
         ourServices: "Our Services",
         bookAppointment: "Book appointment",
+        readMore: "Read More",
       },
     },
     "ar-SA": {

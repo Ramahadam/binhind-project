@@ -14,7 +14,6 @@ import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import Message from "./Message";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-let trans;
 
 function HeroSectionContent() {
   // Fetch clients testimonials (qoute, image, name, company/position)
@@ -22,6 +21,8 @@ function HeroSectionContent() {
   const { data: heroItems } = useGetHeroItemsQuery(lang, {
     suspense: true,
   });
+
+  const { t } = useTranslation();
 
   // Render Props Pattern
   const render = (hero) => (
@@ -41,7 +42,7 @@ function HeroSectionContent() {
           </p>
 
           <button className="text-p18 px-4 py-2 rounded-md ">
-            {trans("readMore")}
+            {t("readMore")}
           </button>
         </div>
         {hero?.image[0]?.url && (
@@ -63,8 +64,6 @@ function HeroSectionContent() {
 }
 
 function HeroSection() {
-  const { t } = useTranslation();
-  trans = t;
   return (
     <ErrorBoundary
       fallback={
