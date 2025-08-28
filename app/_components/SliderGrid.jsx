@@ -10,6 +10,7 @@ import "swiper/css/pagination";
 // import required modules
 import { Grid, Navigation } from "swiper/modules";
 import { useSelector } from "react-redux";
+import Button from "./Button";
 
 export default function SliderGrid({ data, render }) {
   const lang = useSelector((state) => state.language.lang);
@@ -48,12 +49,15 @@ export default function SliderGrid({ data, render }) {
       </Swiper>
 
       {/* Arrows OUTSIDE Swiper */}
-      <button className="custom-prev-ourteam absolute md:-left-2 left-0 top-1/3 -translate-y-1/2 z-50 p-3 bg-transparent cursor-pointer ">
-        <MdKeyboardArrowLeft className="h-8 w-8" />
-      </button>
-      <button className="custom-next-ourteam absolute md:-right-2 right-0 top-1/3 -translate-y-1/2 z-50 p-3  bg-transparent cursor-pointer">
-        <MdKeyboardArrowRight className="h-8 w-8" />
-      </button>
+
+      <Button
+        className="custom-prev-ourteam absolute md:-left-2 left-0 top-1/3 -translate-y-1/2 z-50 p-3 bg-transparent cursor-pointer "
+        icon={<MdKeyboardArrowLeft className="h-8 w-8 text-primary" />}
+      />
+      <Button
+        className="custom-next-ourteam absolute md:-right-2 right-0 top-1/3 -translate-y-1/2 z-50 p-3  bg-transparent cursor-pointer"
+        icon={<MdKeyboardArrowRight className="h-8 w-8 text-primary" />}
+      />
     </div>
   );
 }

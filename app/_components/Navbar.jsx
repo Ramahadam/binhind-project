@@ -47,9 +47,9 @@ export default function Navbar() {
       }
     }
 
-    document.addEventListener("mousemove", handleOusideClick);
+    document.addEventListener("click", handleOusideClick);
 
-    return () => document.removeEventListener("mousemove", handleOusideClick);
+    return () => document.removeEventListener("click", handleOusideClick);
   }, [setServicesOpen]);
 
   return (

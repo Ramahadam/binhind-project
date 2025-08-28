@@ -18,9 +18,9 @@ function LangSwitcher() {
       }
     }
 
-    document.addEventListener("mousemove", handleOutsideClick);
+    document.addEventListener("click", handleOutsideClick);
 
-    return () => document.removeEventListener("mousemove", handleOutsideClick);
+    return () => document.removeEventListener("click", handleOutsideClick);
   });
 
   return (

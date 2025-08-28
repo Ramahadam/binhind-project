@@ -3,15 +3,8 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { getPageNumbers } from "../_utils/helper";
 
 function Pagination({ currentPage, pageCount }) {
-  // Hide the Pagination if we have one page or no result
-  console.log(currentPage);
+  // Hide the Pagination if there is one page or no result
   if (pageCount <= 1) return null;
-
-  //   const pages = [];
-
-  //   for (let i = 1; i <= pageCount; i++) {
-  //     pages.push(i);
-  //   }
 
   const pages = getPageNumbers(currentPage, pageCount);
 

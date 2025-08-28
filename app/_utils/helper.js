@@ -109,6 +109,7 @@ export function renderNavbarLinks(
           }
           iconPosition="right"
           onClick={() => setServicesOpen(!servicesOpen)}
+          className={`${isMobileNav && "!text-left justify-start !px-0"}`}
         >
           {t(item.label)}
         </Button>
